@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import {Helmet} from "react-helmet";
+import { Helmet } from 'react-helmet';
+import Header from '../components/Header';
 
-
-
-
-class Shipment extends Component {
+class ShipmentDetails extends Component {
   render () {
     return (
       <div>
@@ -12,11 +10,12 @@ class Shipment extends Component {
           <meta name="description" content="Shipment details page"/>
           <title>Shipment | Frieghthub </title>
         </Helmet>
-        <div>This is Shipment page</div>
+        <Header />
+        <div>This is Shipment details page</div>
       </div>
     );
   }
 }
 
 
-export default Shipment;
+export default ShipmentDetails;

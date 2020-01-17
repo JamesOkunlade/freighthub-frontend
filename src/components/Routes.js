@@ -1,16 +1,14 @@
-import React from "react";
-import { Route, Switch } from "react-router";
-
-import Home from "../pages/Home";
-import Shipments from "../pages/Shipments";
-import Shipment from "../pages/Shipment";
-
+import React from 'react';
+import { Route, Switch } from 'react-router';
+import Home from '../pages/Home';
+import Shipments from '../pages/Shipments';
+import ShipmentDetails from '../pages/ShipmentDetails';
 
 const Routes = () => (
   <Switch>
     <Route exact path="/" component={Home} />
     <Route path="/Shipments" component={Shipments} />
-    <Route path="/Shipment" component={Shipment} />
+    <Route path="/ShipmentDetails" component={ShipmentDetails} />
   </Switch>
 );
 
