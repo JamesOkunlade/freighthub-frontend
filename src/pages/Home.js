@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
+import Header from '../components/Header';
 import '../styles/Home.css';
 
 class Home extends Component {
@@ -12,8 +13,11 @@ class Home extends Component {
           <title>Frieghthub - Home </title>
         </Helmet>
         <div className="home">
+        <Header />
+
           <div className="cap">
             <h1>FrieghtHub</h1>
+
             <Link to="./shipments"><button type="button" className="btn btn-outline-secondary">View all shipments</button></Link>
           </div>
         </div>

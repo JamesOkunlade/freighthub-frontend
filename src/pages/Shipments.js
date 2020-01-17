@@ -20,7 +20,6 @@ class Shipments extends Component {
             author: "James"
           }
         });
-        console.log(updatedShipments);
         this.setState({shipments: updatedShipments});
       });
   }
@@ -28,16 +27,14 @@ class Shipments extends Component {
 
   handleClickPrev = () => {
     this.setState((state) => ({
-      pageCount: this.state.pageCount >= 20? this.state.pageCount - 20 : this.state.pageCount
-
-      // pageCount: this.state.pageCount - 20
-    }))
+      pageCount: this.state.pageCount >= 20 ? this.state.pageCount - 20 : this.state.pageCount
+    }));
   }
 
   handleClickNext = () => {
     this.setState((state) => ({
-      pageCount: this.state.pageCount < this.state.shipments.length - 20? this.state.pageCount + 20 : this.state.pageCount
-    }))
+      pageCount: this.state.pageCount < this.state.shipments.length - 20 ? this.state.pageCount + 20 : this.state.pageCount
+    }));
   }
 
   render () {

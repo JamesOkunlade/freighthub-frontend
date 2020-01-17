@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../styles/Header.css';
 
 const Header = () => (
   <div>
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <nav className="navbar navbar-expand navbar-dark static-top">
       <div className="container">
         <Link className="navbar-brand" to="/">
-              <img src="http://placehold.it/150x50?text=Logo" alt="" />
+              <img className="logo" src={require("../images/logo.png")} alt="logo" />
             </Link>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
