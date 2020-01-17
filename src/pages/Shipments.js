@@ -1,10 +1,50 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
+import axios from 'axios';
 import Header from '../components/Header';
 import Shipment from '../components/Shipment';
 
 class Shipments extends Component {
+  state = {
+    shipments: [],
+    pageCount: 0
+  }
+
+  componentDidMount () {
+    axios.get('https://jsonplaceholder.typicode.com/posts')
+      .then(response => {
+        const shipments = response.data;
+        const updatedShipments = shipments.map(shipment => {
+          return {
+            ...shipment,
+            author: "James"
+          }
+        });
+        console.log(updatedShipments);
+        this.setState({shipments: updatedShipments});
+      });
+  }
+
+
+  handleClickPrev = () => {
+    this.setState((state) => ({
+      // pageCount: this.state.pageCount > 20? this.state.pageCount - 20 : 20
+      pageCount: this.state.pageCount - 20
+    }))
+  }
+
+  handleClickNext = () => {
+    this.setState((state) => ({
+      pageCount: this.state.pageCount + 20
+    }))
+  }
+
   render () {
+    const shipments = this.state.shipments.slice(this.state.pageCount, this.state.pageCount + 20).map(shipment => {
+        return <Shipment key={shipment.id} title={shipment.title} author={shipment.author}/>
+      }
+    );
+
     return (
       <div>
         <Helmet>
@@ -17,34 +57,23 @@ class Shipments extends Component {
 
             <h1 className="my-4">Shipments
             </h1>
+            <span>showing {this.state.pageCount + 1} to {this.state.pageCount + 20}</span>
 
-            <Shipment />
-
-
-
-
+            {shipments}
 
             <ul className="pagination justify-content-center">
               <li className="page-item">
-                <a className="page-link" href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
+                <button onClick={e => this.handleClickPrev()} className="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo; Prev</span>
                   <span className="sr-only">Previous</span>
-                </a>
+                </button>
               </li>
+
               <li className="page-item">
-                <a className="page-link" href="#">1</a>
-              </li>
-              <li className="page-item">
-                <a className="page-link" href="#">2</a>
-              </li>
-              <li className="page-item">
-                <a className="page-link" href="#">3</a>
-              </li>
-              <li className="page-item">
-                <a className="page-link" href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
+                <button onClick={e => this.handleClickNext()} className="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">Next &raquo;</span>
                   <span className="sr-only">Next</span>
-                </a>
+                </button>
               </li>
             </ul>
 
