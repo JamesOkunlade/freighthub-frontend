@@ -28,14 +28,15 @@ class Shipments extends Component {
 
   handleClickPrev = () => {
     this.setState((state) => ({
-      // pageCount: this.state.pageCount > 20? this.state.pageCount - 20 : 20
-      pageCount: this.state.pageCount - 20
+      pageCount: this.state.pageCount >= 20? this.state.pageCount - 20 : this.state.pageCount
+
+      // pageCount: this.state.pageCount - 20
     }))
   }
 
   handleClickNext = () => {
     this.setState((state) => ({
-      pageCount: this.state.pageCount + 20
+      pageCount: this.state.pageCount < this.state.shipments.length - 20? this.state.pageCount + 20 : this.state.pageCount
     }))
   }
 
@@ -54,9 +55,7 @@ class Shipments extends Component {
         <div>
           <Header />
           <div className="container">
-
-            <h1 className="my-4">Shipments
-            </h1>
+            <h1 className="my-4">Shipments</h1>
             <span>showing {this.state.pageCount + 1} to {this.state.pageCount + 20}</span>
 
             {shipments}
@@ -68,7 +67,6 @@ class Shipments extends Component {
                   <span className="sr-only">Previous</span>
                 </button>
               </li>
-
               <li className="page-item">
                 <button onClick={e => this.handleClickNext()} className="page-link" href="#" aria-label="Next">
                   <span aria-hidden="true">Next &raquo;</span>
@@ -76,9 +74,8 @@ class Shipments extends Component {
                 </button>
               </li>
             </ul>
-
-        </div>
-
+          </div>
+          <span>showing {this.state.pageCount + 1} to {this.state.pageCount + 20}</span>
         </div>
       </div>
     );
