@@ -10,10 +10,10 @@ const Shipment = (props) => (
         </Link>
       </div>
       <div className="col-md-5">
-        <h3>{props.title}</h3>
+        <h3>{props.name}</h3>
         <span>{props.author}</span>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, odit velit cumque vero doloremque repellendus distinctio maiores rem expedita a nam vitae modi quidem similique ducimus! Velit, esse totam tempore.</p>
-        <Link className="btn btn-primary" to="./ShipmentDetails">View Project</Link>
+        <p>{props.id}</p>
+        <Link onClick={props.clicked} className="btn btn-primary" to="./ShipmentDetails">View shipment details</Link>
       </div>
     </div>
     <hr/>

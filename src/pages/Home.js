@@ -16,9 +16,9 @@ class Home extends Component {
         <Header />
 
           <div className="cap">
-            <h1>FrieghtHub</h1>
+            <h1>FreightHub – Europe's first digital freight forwarder</h1>
 
-            <Link to="./shipments"><button type="button" className="btn btn-outline-secondary">View all shipments</button></Link>
+            <Link to="./shipments"><button type="button" className="btn">View all shipments</button></Link>
           </div>
         </div>
       </div>

@@ -7,11 +7,13 @@ import Shipment from '../components/Shipment';
 class Shipments extends Component {
   state = {
     shipments: [],
-    pageCount: 0
+    pageCount: 0,
+    selectedShipmentID: null
   }
 
   componentDidMount () {
-    axios.get('https://jsonplaceholder.typicode.com/posts')
+    // axios.get('https://jsonplaceholder.typicode.com/posts')
+    axios.get('http://localhost:3000/shipments')
       .then(response => {
         const shipments = response.data;
         const updatedShipments = shipments.map(shipment => {
@@ -37,9 +39,18 @@ class Shipments extends Component {
     }));
   }
 
+  handleClickShipmentDetails = id => {
+    this.setState({selectedShipmentID: id})
+  }
+
   render () {
     const shipments = this.state.shipments.slice(this.state.pageCount, this.state.pageCount + 20).map(shipment => {
-        return <Shipment key={shipment.id} title={shipment.title} author={shipment.author}/>
+        return <Shipment
+        key={shipment.id}
+        id={shipment.id}
+        name={shipment.name}
+        author={shipment.author}
+        clicked={() => this.handleClickShipmentDetails(shipment.id)}/>
       }
     );
 

@@ -6,9 +6,21 @@
   width: 100%;
   height: 100vh;
   text-align: center;
-  color: #fffb;
+  color: #fff;
 }
 
 .cap {
-  padding-top: 20%;
+  padding-top: 15%;
+  width: 500px;
+  margin: 0 auto;
+}
+
+.btn {
+  background: #0494d6;
+  color: #fff;
+  padding: 15px;
+  font-size: 16px;
+}
+.btn:hover {
+  background: #0090d0;
 }
