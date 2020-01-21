@@ -16,13 +16,7 @@ class Shipments extends Component {
     axios.get('http://localhost:3000/shipments')
       .then(response => {
         const shipments = response.data;
-        const updatedShipments = shipments.map(shipment => {
-          return {
-            ...shipment,
-            author: "James"
-          }
-        });
-        this.setState({shipments: updatedShipments});
+        this.setState({shipments: shipments});
       });
   }
 
@@ -39,7 +33,7 @@ class Shipments extends Component {
     }));
   }
 
-  handleClickShipmentDetails = id => {
+  handleClickShipmentDetails = (id) => {
     this.setState({selectedShipmentID: id})
   }
 
@@ -49,7 +43,6 @@ class Shipments extends Component {
         key={shipment.id}
         id={shipment.id}
         name={shipment.name}
-        author={shipment.author}
         clicked={() => this.handleClickShipmentDetails(shipment.id)}/>
       }
     );

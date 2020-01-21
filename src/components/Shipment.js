@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Shipment = (props) => (
+const Shipment = ({ name, id, clicked }) => (
   <div>
     <div className="row">
       <div className="col-md-7">
@@ -10,10 +10,9 @@ const Shipment = (props) => (
         </Link>
       </div>
       <div className="col-md-5">
-        <h3>{props.name}</h3>
-        <span>{props.author}</span>
-        <p>{props.id}</p>
-        <Link onClick={props.clicked} className="btn btn-primary" to="./ShipmentDetails">View shipment details</Link>
+        <h3>{name}</h3>
+        <p>{id}</p>
+        <Link onClick={clicked} className="btn btn-primary" to="./ShipmentDetails">View shipment details</Link>
       </div>
     </div>
     <hr/>
